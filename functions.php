@@ -4,8 +4,8 @@ function randomValue($withNum, $withSymb) {
 
     $upper_case = chr(rand(65, 90));
     $lower_case = chr(rand(97, 122));
-    $options[] = $upper_case;
-    $options[] = $lower_case;
+
+    array_push($options, $upper_case, $lower_case);
 
     if ($withNum === 'on') {
         $number = rand(0, 9);
@@ -20,11 +20,19 @@ function randomValue($withNum, $withSymb) {
 
     return $options[rand(0, count($options) - 1)];
 }
-function generatePassword($characters, $num, $symb) {
+function generatePassword($characters, $num, $symb, $repeatChar) {
     $password = "";
 
     while (strlen($password) < $characters) {
-        $password .= randomValue($num, $symb);
+        $newChar = randomValue($num, $symb);
+
+        if(!$repeatChar) {
+           if (!str_contains($password, $newChar)) {
+            $password .= $newChar;
+           }
+        } else {
+            $password .= $newChar;
+        }
     }
 
     var_dump($password);

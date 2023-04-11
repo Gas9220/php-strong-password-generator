@@ -2,7 +2,9 @@
 require __DIR__ . '/functions.php';
 include __DIR__ . '/session.php';
 
-$_SESSION['generated_password'] = generatePassword($_POST["pass-lenght"], $_POST["enable-numbers"], $_POST["enable-symbols"]);
+$allowRepeated = $_POST["repeat-char"] === 'repeat' ? true : false;
+
+$_SESSION['generated_password'] = generatePassword($_POST["pass-lenght"], $_POST["enable-numbers"], $_POST["enable-symbols"], $allowRepeated);
 
 if ($_POST["pass-lenght"] !== null && (strlen($_SESSION['generated_password']) == $_POST["pass-lenght"])) {
     header("Location: ./password.php");
@@ -36,6 +38,12 @@ var_dump($_POST["enable-numbers"]);
                 <br>
                 <label for="enable-symbols">Symbols</label>
                 <input type="checkbox" name="enable-symbols" checked>
+                <br>
+                <label for="">Repeated characters</label>
+                <input type="radio" id="yes" name="repeat-char" value="repeat" checked>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="repeat-char" balue="no-repeat">
+                <label for="no">No</label><br>
             </div>
         </form>
     </div>
