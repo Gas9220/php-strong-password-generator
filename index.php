@@ -4,10 +4,12 @@ include __DIR__ . '/session.php';
 
 $allowRepeated = $_POST["repeat-char"] === 'repeat' ? true : false;
 
-$_SESSION['generated_password'] = generatePassword($_POST["pass-lenght"], $_POST["enable-numbers"], $_POST["enable-symbols"], $allowRepeated);
+if ($_POST["pass-lenght"] !== null) {
+    $_SESSION['generated_password'] = generatePassword($_POST["pass-lenght"], $_POST["enable-numbers"], $_POST["enable-symbols"], $allowRepeated);
 
-if ($_POST["pass-lenght"] !== null && (strlen($_SESSION['generated_password']) == $_POST["pass-lenght"])) {
-    header("Location: ./password.php");
+    if ((strlen($_SESSION['generated_password']) == $_POST["pass-lenght"])) {
+        header("Location: ./password.php");
+    }
 }
 
 var_dump($_POST["pass-lenght"]);

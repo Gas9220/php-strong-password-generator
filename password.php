@@ -17,7 +17,7 @@ var_dump($password);
 <body>
     <div>
         <h4>Your password is:</h4>
-        <p><?php echo $password ?></p>
+        <pre><?php echo $password ?></pre>
     </div>
     <form action="reset.php" method="post">
         <button type="submit">Reset</button>
