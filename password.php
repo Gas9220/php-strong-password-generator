@@ -18,6 +18,9 @@ include __DIR__ . '/session.php';
         <h4>Your password is:</h4>
         <p><?php echo $_SESSION['generated_password']; ?></p>
     </div>
+    <form action="reset.php" method="post">
+        <button type="submit">Reset</button>
+    </form>
 </body>
 
 </html>
