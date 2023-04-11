@@ -1,6 +1,7 @@
 <?php
 include __DIR__ . '/session.php';
-
+$password = $_SESSION['generated_password'];
+var_dump($password);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ include __DIR__ . '/session.php';
 <body>
     <div>
         <h4>Your password is:</h4>
-        <p><?php echo $_SESSION['generated_password']; ?></p>
+        <p><?php echo $password ?></p>
     </div>
     <form action="reset.php" method="post">
         <button type="submit">Reset</button>

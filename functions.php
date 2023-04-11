@@ -18,8 +18,6 @@ function randomValue($withNum, $withSymb) {
         $options[] = $randomSymbol;
     }
 
-    var_dump($options);
-
     return $options[rand(0, count($options) - 1)];
 }
 function generatePassword($characters, $num, $symb) {

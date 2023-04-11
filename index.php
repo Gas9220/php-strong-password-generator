@@ -8,7 +8,8 @@ if ($_POST["pass-lenght"] !== null && (strlen($_SESSION['generated_password']) =
     header("Location: ./password.php");
 }
 
-var_dump($_POST["enable-numbers"])
+var_dump($_POST["pass-lenght"]);
+var_dump($_POST["enable-numbers"]);
 ?>
 
 <!DOCTYPE html>
