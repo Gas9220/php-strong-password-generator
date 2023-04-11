@@ -1,6 +1,6 @@
 <?php
 
-$password_length = $_GET["pass-lenght"];
+$password_length = $_POST["pass-lenght"];
 
 function randomValue() {
     $upper_case = chr(rand(65,90));
