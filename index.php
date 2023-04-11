@@ -2,11 +2,13 @@
 require __DIR__ . '/functions.php';
 include __DIR__ . '/session.php';
 
-$_SESSION['generated_password'] = generatePassword($password_length);
+$_SESSION['generated_password'] = generatePassword($_POST["pass-lenght"], $_POST["enable-numbers"], $_POST["enable-symbols"]);
 
 if ($_POST["pass-lenght"] !== null && (strlen($_SESSION['generated_password']) == $_POST["pass-lenght"])) {
     header("Location: ./password.php");
 }
+
+var_dump($_POST["enable-numbers"])
 ?>
 
 <!DOCTYPE html>
