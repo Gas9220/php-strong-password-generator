@@ -27,6 +27,13 @@ if ($_POST["pass-lenght"] !== null && (strlen($_SESSION['generated_password']) =
         <form action="index.php" method="post">
             <label for="pass-lenght">Lunghezza password:</label>
             <input type="number" name="pass-lenght" placeholder="password characters">
+            <div class="options">
+                <label for="enable-numbers">Numbers</label>
+                <input type="checkbox" name="enable-numbers" checked>
+                <br>
+                <label for="enable-symbols">Symbols</label>
+                <input type="checkbox" name="enable-symbols" checked>
+            </div>
         </form>
     </div>
 </body>
